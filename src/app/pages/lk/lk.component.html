@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="lk.component.scss">
+<section class="main_sec">
+  <div class="left_sec">
+    <img class="left_img" src="./assets/img/avatar.png" alt="">
+  </div>
+  <div class="right_sec">
+
+    <div class="right_sec_top">
+
+    <span class="right_name">
+      {{ dataUser.name_client }}
+    </span>
+      <span class="abonement">
+      У вас абонемент: Light. Осталось {{countTrener}} тренировок
+    </span>
+      <button class="form_btn" (click)="onLogout()">Выйти из аккаунта</button>
+
+    </div>
+
+    <div class="right_sub_sec">
+
+      <form action="" class="right_form" [formGroup]="lkForm">
+        <input
+          [ngClass]="{'form_input_invalid':
+          this.lkForm.get('nameForm')?.invalid &&
+          this.lkForm.get('nameForm')?.touched}"
+          formControlName="nameForm"
+          class="form_input" placeholder="{{ dataUser.name_client }}">
+        <input
+          [ngClass]="{'form_input_invalid':
+          this.lkForm.get('emailForm')?.invalid &&
+          this.lkForm.get('emailForm')?.touched}"
+          formControlName="emailForm"
+          class="form_input" placeholder="{{ dataUser.email_client }}">
+      </form>
+      <div class="right_sec_btn">
+        <button class="form_btn" (click)="onCancel()">Отменить</button>
+        <button class="form_btn" (click)="onUpdateUser()">Сохранить изменения</button>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
+<section *ngIf="dataUser.role_client=='user'" class="sub_sec">
+  <app-trensess-page/>
+</section>
+
+<section *ngIf="dataUser.role_client=='root'" class="sub_sec">
+  <app-admin-schedule-db/>
+  <app-feedback/>
+</section>

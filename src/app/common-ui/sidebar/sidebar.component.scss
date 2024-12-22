@@ -1,0 +1,56 @@
+:host{
+  font-family: "JetBrains Mono", sans-serif;
+}
+
+.header {
+  background-color: var(--dark-color);
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  align-items: center;
+  padding: 0px 60px;
+  position:fixed;
+  width: 93vw;
+  z-index: 10;
+}
+
+.header_under{
+    display: flex;
+    background-color: var(--primary-color);
+    padding: 10px 150px;
+    padding-top:104px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.header_logo {
+  width: 90px;
+}
+
+.header_n {
+  color: var(--light-color);
+  justify-content: center;
+
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.header_btn {
+  color: var(--light-color);
+  background: none;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+
+  font-family: "JetBrains Mono", sans-serif;
+    font-size: 16px;
+    padding: 12px;
+    &:hover {
+      background-color: var(--primary-color);
+      // color: var(--dark-color);
+      border-radius: 14px;
+}
+}
+

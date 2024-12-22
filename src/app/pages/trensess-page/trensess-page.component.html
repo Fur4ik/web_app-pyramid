@@ -1,0 +1,34 @@
+<div class="title_text">Мои тренировки</div>
+<div class="main_sec">
+  <div class="serch">
+    <form [formGroup]="searchForm" class="serch_form">
+      <div class="serch_form_sub">
+        <span class="serch_text">Время</span>
+        <input class="serch_input" type="text" formControlName="searchTime">
+      </div>
+      <div class="serch_form_sub">
+        <span class="serch_text">Вид тренировки</span>
+        <input class="serch_input" type="text" formControlName="searchType">
+      </div>
+      <div class="serch_form_sub">
+        <span class="serch_text">Тренер</span>
+        <input class="serch_input" type="text" formControlName="searchTren">
+      </div>
+    </form>
+  </div>
+
+  <div class="lists">
+    <div *ngFor="let subArray of filteredTrenSess">
+      <div *ngFor="let item of subArray" class="list">
+        <div class="list_time">
+          <span class="list_timeClock">{{item.time_clock}}</span>
+          <span class="list_timeMin">{{item.time_min}} мин</span>
+        </div>
+        <span class="list_zone">{{item.zone}}</span>
+        <span class="list_nameTrenSess">{{item.name_tren_sess}}</span>
+        <span class="list_nameTrener">{{item.name_trener}}</span>
+        <button class="list_check" (click)="onDeleteTren(item)">Отменить запись</button>
+      </div>
+    </div>
+  </div>
+</div>

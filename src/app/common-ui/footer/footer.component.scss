@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    background-color: var(--dark-color);
+    font-family: "JetBrains Mono", sans-serif;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+.footer_r {
+    display: flex;
+    flex-direction: column;
+}

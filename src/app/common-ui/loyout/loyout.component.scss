@@ -1,0 +1,12 @@
+:host {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .content {
+    width: 100vw;
+    display: grid;
+     align-items: start;
+     //justify-content: center;
+}

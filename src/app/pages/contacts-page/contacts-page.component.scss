@@ -1,0 +1,54 @@
+:host {
+  display: flex;
+  padding: 90px 160px;
+  flex-direction: column;
+  gap: 60px;
+  font-family: "JetBrains Mono", sans-serif;
+}
+
+.cont-title {
+  font-size: 44px;
+  font-weight: 500;
+}
+
+.main_cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
+
+.cont_left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+}
+
+.cont_right {
+  box-shadow: 10px 10px 30px #888;
+  height: 637px;
+}
+
+.cont_text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cont_text-main {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.cont_text-sub_d {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cont_text-sub {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--dark-color);
+}

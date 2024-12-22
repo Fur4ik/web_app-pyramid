@@ -1,0 +1,29 @@
+.popup {
+  font-family: "JetBrains Mono", sans-serif;
+  position: fixed;
+  border-radius: 14px;
+  padding: 10px 20px;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  user-select: none;
+}
+
+.success_popup {
+  background-color: var(--primary-color);
+}
+
+.fail_popup {
+  background-color: #fd3b3b;
+}
+
+//.main_popup {
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//}
+
+.text_popup {
+  font-size: 18px;
+  color: var(--light-color);
+}

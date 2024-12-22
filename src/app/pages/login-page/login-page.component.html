@@ -1,0 +1,127 @@
+<div class="main_sec" #field>
+  <div class="left_sec">
+    <img class="img_form" src="./assets/img/girl.png" alt="">
+  </div>
+  <div class="right_sec">
+    <div class="togle">
+      <span class="span_text">Вход</span>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="isToggled">
+        <span class="slider round"></span>
+      </label>
+      <span class="span_text">Регистация</span>
+    </div>
+
+
+    <!--      -->
+    <!--      -->
+    <!--      login-->
+    <section *ngIf="!isToggled" class="sec_form">
+      <form action="" [formGroup]="loginForm" class="forms">
+        <div class="field">
+          <label class="label_text">Почта</label>
+          <input
+            [ngClass]="{'input_text_invalid':
+                      this.loginForm.get('emailLogin')?.invalid &&
+                      this.loginForm.get('emailLogin')?.touched}"
+            class="input_text" formControlName="emailLogin"
+            placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label class="label_text">Пароль</label>
+          <div class="div_pass">
+
+            <input
+              [ngClass]="{'input_text_invalid':
+                      (this.loginForm.get('passwordLogin')?.invalid &&
+                      this.loginForm.get('passwordLogin')?.touched) ||
+                      this.regError==='Пароли не совпадают' ||
+                      this.regError==='Заполните все поля'}"
+              class="input_text pass_input" formControlName="passwordLogin"
+              [type]="showPasswordLogin? 'text':'password'">
+
+            <button class="pass_btn" (click)="onShowPass()">
+              <img src="/assets/img/pass.png" class="pass_img" alt="">
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="error_sec">
+                <span *ngIf="loginError">
+              {{ loginError }}
+                </span>
+      </div>
+      <div class="btn_bottom">
+        <button (click)="onLogin()" class="btn">Войти</button>
+      </div>
+    </section>
+
+
+    <!--      -->
+    <!--      -->
+    <!--      registration-->
+    <section *ngIf="isToggled" class="sec_form">
+      <form action="" [formGroup]="regForm" class="forms">
+        <div class="field">
+          <label class="label_text">Имя Фамилия</label>
+          <input [ngClass]="{'input_text_invalid':
+                regForm.get('nameReg')?.invalid &&
+                regForm.get('nameReg')?.touched}"
+                 class="input_text" formControlName="nameReg"
+                 placeholder="Иванов Иван">
+        </div>
+        <div class="field">
+          <label class="label_text">Почта</label>
+          <input [ngClass]="{'input_text_invalid':
+                    regForm.get('emailReg')?.invalid &&
+                    regForm.get('emailReg')?.touched}"
+                 class="input_text" formControlName="emailReg"
+                 placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label class="label_text">Пароль</label>
+          <div class="div_pass">
+
+            <input [ngClass]="{'input_text_invalid':
+                    regForm.get('passwordReg')?.invalid &&
+                    regForm.get('passwordReg')?.touched}"
+                   class="input_text" formControlName="passwordReg"
+                   [type]="showPasswordReg1? 'text':'password'">
+            <button class="pass_btn" (click)="onShowPassReg1()">
+              <img src="/assets/img/pass.png" class="pass_img" alt="">
+            </button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label_text">Повторите пароль</label>
+          <div class="div_pass">
+            <input [ngClass]="{'input_text_invalid':
+                    regForm.get('confirmPasswordReg')?.invalid &&
+                    regForm.get('confirmPasswordReg')?.touched}"
+                   class="input_text" formControlName="confirmPasswordReg"
+                   [type]="showPasswordReg2? 'text':'password'">
+            <button class="pass_btn" (click)="onShowPassReg2()">
+              <img src="/assets/img/pass.png" class="pass_img" alt="">
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="error_sec">
+                <span *ngIf="regError">
+              {{ regError }}
+                </span>
+      </div>
+      <div class="btn_bottom">
+        <button (click)="onRegister()" type="submit" class="btn">Зарегистрироваться</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<!--<div #field>123</div>-->
+
+<!--<div class="btn_bottom">-->
+<!--    <button class="btn" (click)="boom()">Зарегистрироваться</button>-->
+<!--</div>-->
+

@@ -1,0 +1,51 @@
+<div class="title_text">Создать новую тренировку</div>
+<div class="main_sec">
+  <div class="search">
+    <form class="search_form" (ngSubmit)="onSubmit()" [formGroup]="postForm">
+      <div class="search_form_sub">
+        <span class="search_text">Время начала</span>
+        <input [ngClass]="{'search_input_invalid': postForm.get('postTimeClock')?.invalid && postForm.get('postTimeClock')?.touched}"
+               class="search_input" type="text" formControlName="postTimeClock"
+                placeholder="10:00">
+      </div>
+      <div class="search_form_sub">
+        <span class="search_text">Время в минутах</span>
+        <input [ngClass]="{'search_input_invalid': postForm.get('postTimeMin')?.invalid && postForm.get('postTimeMin')?.touched}"
+               class="search_input" type="text" formControlName="postTimeMin"
+                placeholder="30">
+      </div>
+      <div class="search_form_sub">
+        <span class="search_text">Зона проведения тренировки</span>
+        <input [ngClass]="{'search_input_invalid': postForm.get('postZone')?.invalid && postForm.get('postZone')?.touched}"
+               class="search_input" type="text" formControlName="postZone"
+                placeholder="Зона групповых программ">
+      </div>
+      <div class="search_form_sub">
+        <span class="search_text">Название тренировки</span>
+        <input [ngClass]="{'search_input_invalid': postForm.get('postNameTrenSess')?.invalid && postForm.get('postNameTrenSess')?.touched}"
+               class="search_input" type="text" formControlName="postNameTrenSess"
+               placeholder="Здоровая спина">
+      </div>
+      <div class="search_form_sub">
+        <span class="search_text">Тренер</span>
+        <input [ngClass]="{'search_input_invalid': postForm.get('postNameTren')?.invalid && postForm.get('postNameTren')?.touched}"
+               class="search_input" type="text" formControlName="postNameTren"
+        placeholder="Иванов Иван">
+      </div>
+      <button type="submit" class="list_check">Создать</button>
+    </form>
+  </div>
+
+  <div class="lists">
+    <div *ngFor="let item of trenSess" class="list">
+      <div class="list_time">
+        <span class="list_timeClock">{{ item.time_clock }}</span>
+        <span class="list_timeMin">{{ item.time_min }} мин</span>
+      </div>
+      <span class="list_zone">{{ item.zone }}</span>
+      <span class="list_nameTrenSess">{{ item.name_tren_sess }}</span>
+      <span class="list_nameTrener">{{ item.name_trener }}</span>
+      <button class="list_check" (click)="deleteTren(item)">Удалить тренировку</button>
+    </div>
+  </div>
+</div>

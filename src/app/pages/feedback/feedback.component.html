@@ -1,0 +1,21 @@
+<!--<div class="title_text">Обратная связь клиентов</div>-->
+
+<section class="main_sec">
+  <div class="title_text">Обратная связь клиентов</div>
+  <div class="main_sec_top">
+    <span class="main_sec_top_text">Нормер обращения</span>
+    <span class="main_sec_top_text">Имя клиента</span>
+    <span class="main_sec_top_text">Телефон клиента</span>
+    <span></span>
+  </div>
+  <div class="lists">
+
+    <div *ngFor="let item of feedData" class="main_sec_bott">
+      <span class="mess_text">{{ item.id_mess }}</span>
+      <span class="name_text"> {{ item.name_client }}</span>
+      <span class="phone_text"> {{ item.phone_client }}</span>
+      <button class="feed_btn" (click)="feedClient(item.id_mess)">Клиент обработан</button>
+      <!--    {{feedData | json}}-->
+    </div>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+<section class="sec_video">
+  <video autoplay loop muted>
+    <source src="./assets/mp4/video.mp4" type="video/mp4">
+  </video>
+  <div class="text_video">
+    <div class="text_video_main">
+            <span class="text_video_main-title">
+                Фитнес-клуб Пирамида
+            </span>
+      <span>
+                <hr>
+            </span>
+      <span class="text_video_main-subtitle">
+                Наша цель - создавать для наших клиентов комфортный
+                формат фитнес-клуба и открывать неограниченные возможности
+                фитнеса: посещение тренажерного зала, групповых программ,
+                бассейна, банного комплекса, массажного кабинета, детского
+                клуба, кафе-бара, различных мероприятий.
+            </span>
+    </div>
+    <button class="text_video_btn" [routerLink]="['/schedule']" routerLinkActive="router-link-active">
+      К тренировкам
+    </button>
+  </div>
+</section>
+
+<section class="about">
+  <span class="about_fir">PYRAMID FITNESS CLUB</span>
+  <div class="about_sec">
+    <div class="ab">
+      <span class="ab_title">ГРУППОВЫЕ ПРОГРАММЫ</span>
+      <span class="ab_text">
+                Наш фитнес-клуб предоставляет большой выбор
+                разнообразных групповых занятий, с
+                профессиональной командой тренеров, веселой
+                и комфортной атмосферой!
+            </span>
+    </div>
+    <div class="ab">
+      <span class="ab_title">ТЕРРИТОРИЯ ФИТНЕСА</span>
+      <span class="ab_text">
+                Тренажерный зал и все залы фитнес-клуба
+                оборудованы и предназначены для всех видов
+                спортивных нагрузок – кардио, силовой,
+                функциональной.
+            </span>
+    </div>
+    <div class="ab">
+      <span class="ab_title">ПРОФЕССИОНАЛЬНЫЕ ТРЕНЕРЫ</span>
+      <span class="ab_text">
+                Тренеры нашего клуба имеют большой,
+                профессиональный опыт в сфере фитнеса,
+                подберут для вас оптимальную программу
+                тренировок и программу питания.
+            </span>
+    </div>
+  </div>
+</section>
+
+<!--<button (click)="showSuccessPopup()">-->
+<!--  Записаться-->
+<!--</button>-->
+<!--<button (click)="showFailPopup()">-->
+<!--  Удалить-->
+<!--</button>-->
+
+<section class="photo_slider">
+  <span class="check_title">Тренажерный зал</span>
+  <div class="slider">
+    <div class="item" *ngFor="let item of slides; let i = index"
+         [style.display]="i + 1 === slideIndex? 'block':'none'">
+      <img src="{{item}}">
+    </div>
+    <a class="previous" (click)="previousSlide()">&#10094;</a>
+    <a class="next" (click)="nextSlide()">&#10095;</a>
+  </div>
+</section>
+
+<section class="check">
+  <span class="check_title">Персональный тренинг</span>
+  <div class="check_main">
+    <div class="check_left">
+      <img src="./assets/img/persTren.png" alt="" class="check_img">
+    </div>
+    <div class="check_right">
+      <div class="check_right-text">
+        <span class="check_right-title">ЗАПИШИТЕСЬ НА ТРЕНИРОВКУ</span>
+        <span class="check_right-subtitle">Запишитесь на персональную
+                    тренировку и получите индивидуальную консультацию опытного
+                    тренера в тренажёрном зале или по любому
+                    направлению групповых программ!</span>
+      </div>
+      <div>
+        <form action="" class="check_right-form" [formGroup]="feedForm">
+          <div class="check_right-form-all">
+            <div class="check_right-form_np_d">
+              <span class="check_right-form_np">Ваше имя</span>
+              <input class="check_right-form_np_input"
+                     formControlName="feedNameUser" type="text">
+            </div>
+            <div class="check_right-form_np_d">
+              <span class="check_right-form_np">Ваш телефон</span>
+              <input class="check_right-form_np_input"
+                     formControlName="feedPhoneUser" type="text">
+            </div>
+          </div>
+          <div class="check_right-form_btn_d">
+            <button class="check_right-form_btn"
+                    (click)="sendFeedback()">
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

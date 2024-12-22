@@ -1,0 +1,321 @@
+:host {
+  font-family: "JetBrains Mono", sans-serif;
+}
+
+.sec_video {
+  background-color: var(--dark-color);
+  position: relative;
+}
+
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 600px;
+
+}
+
+.text_video {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-color);
+  font-family: "JetBrains Mono", sans-serif;
+  gap: 30px
+
+}
+
+.text_video_main {
+  display: grid;
+  grid-gap: 30px
+}
+
+.text_video_main-title {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 600;
+  font-family: "JetBrains Mono", sans-serif;
+}
+
+.text_video_main-subtitle {
+  font-size: 16px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.text_video_btn {
+  font-family: "JetBrains Mono", sans-serif;
+  background-color: var(--light-primary-color);
+  color: var(--light-color);
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 16px 20px;
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+
+.about {
+  display: grid;
+  grid-template-rows: 90px 90px;
+  grid-gap: 40px;
+  font-family: "JetBrains Mono", sans-serif;
+  background-color: var(--dark-color);
+  padding: 100px 150px;
+}
+
+.about_fir {
+  font-size: 85px;
+  font-weight: 600;
+  color: var(--light-color);
+  text-align: center;
+}
+
+.about_sec {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ab {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.ab_title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.ab_text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--light-color);
+
+}
+
+
+.check {
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+  gap: 20px;
+}
+
+.check_title {
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--dark-color);
+}
+
+.check_main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  padding: 20px;
+}
+
+.check_left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check_img {
+  box-shadow: 10px 10px 30px #888;
+}
+
+.check_right {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.check_right-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.check_right-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.check_right-subtitle {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--dark-color);
+  line-height: 30px;
+}
+
+.check_right-form {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.check_right-form-all {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.check_right-form_np_d {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.check_right-form_np {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.check_right-form_np_input {
+  border-radius: 14px;
+  border: 2px solid var(--primary-color);
+  color: var(--dark-color);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  width: 400px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.check_right-form_btn_d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.check_right-form_btn {
+  background-color: var(--light-primary-color);
+  border: none;
+  border-radius: 14px;
+  padding: 16px 26px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--light-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+.popup {
+  position: fixed;
+  border-radius: 14px;
+  padding: 10px 20px;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.success_popup {
+  background-color: var(--primary-color);
+}
+
+.fail_popup {
+  background-color: #fd3b3b;
+}
+
+.main_popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text_popup {
+  font-size: 18px;
+  color: var(--light-color);
+}
+
+.photo_slider{
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+  gap: 20px;
+}
+
+/* Слайдер: */
+.slider{
+  max-width: 93%;
+  /* Положение элемента устанавливается относительно его исходной позиции: */
+  position: relative;
+  /* Центрируем по горизонтали: */
+  margin: auto;
+  height: 500px;
+  user-select: none;
+  box-shadow: 10px 10px 30px #888;
+}
+
+/* Картинка масштабируется по отношению к родительскому элементу: */
+.slider .item img {
+  /* Элемент меняет размер так, чтобы заполнить блок и сохранить пропорции: */
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+}
+
+/* Кнопки назад и вперёд: */
+.slider .previous, .slider .next {
+  /* Добавляет курсору иконку, когда тот оказывается над кнопкой: */
+  cursor: pointer;
+  /* Положение элемента задаётся относительно границ браузера: */
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  /* Оформление самих кнопок: */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  /* Плавное появление фона при наведении курсора: */
+  transition: 0.6s ease;
+  /* Скругление границ: */
+  border-radius: 0 3px 3px 0;
+}
+.slider .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* При наведении курсора на кнопки добавляем фон кнопок: */
+.slider .previous:hover,
+.slider .next:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Анимация слайдов: */
+.slider .item {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  /* Устанавливаем и изменяем степень прозрачности: */
+  from {
+    opacity: 0.4
+  }
+  to {
+    opacity: 1
+  }
+}
