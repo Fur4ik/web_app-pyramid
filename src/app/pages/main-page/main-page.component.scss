@@ -12,7 +12,6 @@ video {
   object-fit: cover;
   width: 100%;
   height: 600px;
-
 }
 
 .text_video {
@@ -317,5 +316,89 @@ video {
   }
   to {
     opacity: 1
+  }
+}
+
+@media (max-width: 480px) {
+  .text_video{
+    display: flex;
+    flex-direction: column;
+  }
+  .text_video_main-title{
+    font-size: 20px;
+  }
+  .span_hr, .text_video_main-subtitle,
+  .check_right-title{
+    display: none;
+  }
+
+  video{
+    object-fit: cover;
+    width: 100vw;
+    height: 60vw;
+  }
+
+  .about {
+    grid-template-rows: auto auto;
+    grid-gap: 40px;
+    padding: 40px;
+  }
+
+  .about_fir{
+    font-size: 30px;
+  }
+
+  .about_sec{
+    display: flex;
+    grid-gap: 50px;
+    flex-direction: column;
+  }
+
+
+  .check{
+    display: flex;
+    padding: 40px 40px;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .check_main {
+    display: flex;
+    //grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    padding: 20px;
+  }
+  .check_title{
+    font-size: 25px;
+  }
+  .check_left{
+    display: none;
+  }
+  .check_right-text{
+    gap: 10px;
+  }
+  .check_right-subtitle{
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .check_right{
+    gap: 30px;
+  }
+  .check_right-form_np{
+    font-size: 16px;
+  }
+
+  .check_right-form-all{
+    gap: 20px;
+  }
+  .check_right-form{
+    gap: 40px;
+  }
+
+  .check_right-form_np_input {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+    width: auto;
+    box-sizing: border-box;
   }
 }

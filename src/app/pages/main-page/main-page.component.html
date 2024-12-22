@@ -4,19 +4,17 @@
   </video>
   <div class="text_video">
     <div class="text_video_main">
-            <span class="text_video_main-title">
-                Фитнес-клуб Пирамида
-            </span>
-      <span>
-                <hr>
-            </span>
+      <span class="text_video_main-title">
+        Фитнес-клуб Пирамида
+      </span>
+      <span class="span_hr"> <hr> </span>
       <span class="text_video_main-subtitle">
-                Наша цель - создавать для наших клиентов комфортный
-                формат фитнес-клуба и открывать неограниченные возможности
-                фитнеса: посещение тренажерного зала, групповых программ,
-                бассейна, банного комплекса, массажного кабинета, детского
-                клуба, кафе-бара, различных мероприятий.
-            </span>
+        Наша цель - создавать для наших клиентов комфортный
+        формат фитнес-клуба и открывать неограниченные возможности
+        фитнеса: посещение тренажерного зала, групповых программ,
+        бассейна, банного комплекса, массажного кабинета, детского
+        клуба, кафе-бара, различных мероприятий.
+      </span>
     </div>
     <button class="text_video_btn" [routerLink]="['/schedule']" routerLinkActive="router-link-active">
       К тренировкам
@@ -57,17 +55,17 @@
   </div>
 </section>
 
-<section class="photo_slider">
-  <span class="check_title">Тренажерный зал</span>
-  <div class="slider">
-    <div class="item" *ngFor="let item of slides; let i = index"
-         [style.display]="i + 1 === slideIndex? 'block':'none'">
-      <img src="{{item}}">
-    </div>
-    <a class="previous" (click)="previousSlide()">&#10094;</a>
-    <a class="next" (click)="nextSlide()">&#10095;</a>
-  </div>
-</section>
+<!--<section class="photo_slider">-->
+<!--  <span class="check_title">Тренажерный зал</span>-->
+<!--  <div class="slider">-->
+<!--    <div class="item" *ngFor="let item of slides; let i = index"-->
+<!--         [style.display]="i + 1 === slideIndex? 'block':'none'">-->
+<!--      <img src="{{item}}">-->
+<!--    </div>-->
+<!--    <a class="previous" (click)="previousSlide()">&#10094;</a>-->
+<!--    <a class="next" (click)="nextSlide()">&#10095;</a>-->
+<!--  </div>-->
+<!--</section>-->
 
 <section class="check">
   <span class="check_title">Персональный тренинг</span>
