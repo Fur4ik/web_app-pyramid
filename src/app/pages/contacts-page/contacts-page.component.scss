@@ -26,7 +26,8 @@
 
 .cont_right {
   box-shadow: 10px 10px 30px #888;
-  height: 637px;
+  //height: 637px;
+  height: 100%;
 }
 
 .cont_text {
@@ -51,4 +52,44 @@
   font-weight: 400;
   text-decoration: none;
   color: var(--dark-color);
+}
+
+.map{
+  width: 650px;
+  height: 637px;
+}
+
+
+@media (max-width: 480px) {
+  :host{
+    display: flex;
+    padding: 40px 40px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .cont-title{
+    font-size: 25px;
+  }
+
+  .main_cont{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cont_text-main{
+    font-size: 18px;
+  }
+  .cont_text-sub{
+    font-size: 15px;
+  }
+  .cont_left{
+    gap: 30px;
+  }
+
+  .map{
+    width: 320px;
+    height: 320px;
+  }
+
 }
