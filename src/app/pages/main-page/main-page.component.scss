@@ -226,41 +226,6 @@ video {
   }
 }
 
-.popup {
-  position: fixed;
-  border-radius: 14px;
-  padding: 10px 20px;
-  bottom: 0;
-  right: 0;
-  margin: 20px;
-}
-
-.success_popup {
-  background-color: var(--primary-color);
-}
-
-.fail_popup {
-  background-color: #fd3b3b;
-}
-
-.main_popup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.text_popup {
-  font-size: 18px;
-  color: var(--light-color);
-}
-
-.photo_slider{
-  display: flex;
-  flex-direction: column;
-  padding: 80px;
-  gap: 20px;
-}
-
 @media (max-width: 480px) {
   .text_video{
     display: flex;
@@ -358,6 +323,4 @@ video {
     font-size: 16px;
     font-weight: 400;
   }
-
-
 }
