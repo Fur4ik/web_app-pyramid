@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {AuthGuard} from '../../guards/auth.guard';
 import {AuthService} from '../../servises/auth.service';
@@ -15,6 +15,24 @@ import {LkComponent} from '../../pages/lk/lk.component';
 export class SidebarComponent {
   constructor() {
   }
+
+
+  @ViewChild('header_under') field!: ElementRef;
+
+  // @ViewChild('field') field!: ElementRef;
+
+  // Скрыть/показать элемент
+  hideBar() {
+    if(this.field.nativeElement.style.visibility === 'visible') {
+      this.field.nativeElement.style.visibility = 'hidden'
+      this.field.nativeElement.style.opacity = 0
+    }
+    else {
+      this.field.nativeElement.style.visibility = 'visible';
+      this.field.nativeElement.style.opacity = 1;
+    }
+  }
+
 
   authService = inject(AuthService);
 

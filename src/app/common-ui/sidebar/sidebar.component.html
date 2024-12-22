@@ -1,18 +1,14 @@
 <div class="header">
-  <a [routerLink]="['/main']">
+  <button class="logo_btn" (click)="hideBar()">
     <img src="./assets/img/logo3.png" class="header_logo">
-  </a>
+  </button>
   <span class="header_n">Фитнес-клуб Пирамида</span>
   <button *ngIf="!authService.isLoggedIn()" class="header_btn" [routerLink]="['/login']">Войти в аккаунт</button>
-<!--  <button *ngIf="authService.isLoggedIn()" class="header_btn" [routerLink]="['/lk']">{{dataUser.name_client}}</button>-->
   <button *ngIf="authService.isLoggedIn()" class="header_btn" [routerLink]="['/lk']">Личный кабинет</button>
-
 </div>
-<div class="header_under">
+
+<div #header_under class="header_under">
   <a class="header_btn" [routerLink]="['/main']">Главная</a>
   <a class="header_btn" [routerLink]="['/schedule']">Распиcание</a>
   <a class="header_btn" [routerLink]="['/contacts']">Контакты</a>
-<!--  <a class="header_btn" [routerLink]="['/lk']">Личный кабинет</a>-->
-<!--  <a class="header_btn" [routerLink]="['/traning session']">Мои тренировки</a>-->
-<!--  <a class="header_btn" [routerLink]="['/admin schedule']">Админ панель</a>-->
 </div>
