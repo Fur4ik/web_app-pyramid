@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адаптивный сайт</title>
+  <style>
+    body {
+      font-size: 16px;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 12px;
+        padding: 5px;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Адаптивный сайт</h1>
+  <nav>
+    <a href="#">Главная</a>
+    <a href="#">О нас</a>
+    <a href="#">Контакты</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>Привет, мир!</h2>
+    <p>Это пример адаптивной верстки для мобильных устройств.</p>
+    <img src="https://via.placeholder.com/500" alt="Пример изображения">
+  </section>
+</main>
+</body>
+</html>

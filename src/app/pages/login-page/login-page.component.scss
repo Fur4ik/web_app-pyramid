@@ -48,13 +48,11 @@
 .span_text{
     color: var(--light-color);
     font-size: 18px;
-
 }
 
 .sec_form{
     display: grid;
     grid-template-rows: 1fr 10px 80px;
-    //grid-gap: 0px;
 }
 
 .label_text{
@@ -62,11 +60,7 @@
     font-size: 16px;
 }
 .div_pass{
-  //display: flex;
-  //align-items: center;
-  //justify-content: end;
   position: relative;
-
 }
 .pass_btn{
   //display: flex;
@@ -81,9 +75,7 @@
   align-items: center;
   top: 8px;
 }
-.pass_input{
-  //position: relative;
-}
+
 
 .pass_img{
   height: 20px;
@@ -101,7 +93,7 @@
     display: grid;
     grid-template-columns: 150px 1fr;
     grid-gap: 20px;
-    padding: 0px 40px;
+    padding: 0 40px;
     align-items: center;
 }
 
@@ -209,3 +201,26 @@
 }
 
 
+@media (max-width: 480px) {
+  .left_sec{
+    display: none;
+  }
+  .right_sec{
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    border-radius: 14px;
+
+
+  }
+  .field{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 40px;
+    justify-content: start;
+    align-items: start;
+  }
+}
