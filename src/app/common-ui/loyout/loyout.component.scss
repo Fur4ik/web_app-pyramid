@@ -2,11 +2,22 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+  font-family: "JetBrains Mono", sans-serif;
+
   }
 
-  .content {
+.content {
     width: 100vw;
     display: grid;
      align-items: start;
      //justify-content: center;
+  background-color: var(--light-color);
+}
+
+@media (max-width: 480px) {
+  .content {
+    max-width: 80%;
+    align-items: end;
+
+  }
 }
