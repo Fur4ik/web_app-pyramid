@@ -6,7 +6,7 @@
 .header {
   background-color: var(--dark-color);
   display: grid;
-  grid-template-columns: 150px 1fr 150px;
+  grid-template-columns: 90px 1fr 150px;
   align-items: center;
   padding: 0 60px;
   position: fixed;
@@ -45,6 +45,8 @@
   background: none;
   border: none;
   cursor: pointer;
+  width: 90px;
+  height: 90px;
 }
 
 .header_logo {
@@ -70,12 +72,22 @@
   text-decoration: none;
 
   font-family: "JetBrains Mono", sans-serif;
-    font-size: 16px;
-    padding: 12px;
+  font-size: 16px;
+  padding: 12px;
     &:hover {
       background-color: var(--primary-color);
       // color: var(--dark-color);
       border-radius: 14px;
-}
+    }
 }
 
+@media (max-width: 480px) {
+  .header{
+    //display: none;
+
+  }
+  .header_n{
+    visibility: hidden;
+    width: 100px;
+  }
+}
