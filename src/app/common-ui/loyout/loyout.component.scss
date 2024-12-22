@@ -9,15 +9,7 @@
 .content {
     width: 100vw;
     display: grid;
-     align-items: start;
+     align-items: center;
      //justify-content: center;
   background-color: var(--light-color);
-}
-
-@media (max-width: 480px) {
-  .content {
-    max-width: 80%;
-    align-items: end;
-
-  }
 }

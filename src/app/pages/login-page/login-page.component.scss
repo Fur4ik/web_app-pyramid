@@ -202,17 +202,23 @@
 
 
 @media (max-width: 480px) {
+  //:host{
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: center;
+  //}
   .main_sec{
     grid-template-columns: 350px;
     width: 100vw;
     box-sizing: border-box;
+    height: auto;
   }
 
   .left_sec{
     display: none;
   }
   .right_sec{
-    height: 500px;
+    height: auto;
     width: auto;
     justify-content: center;
     border-radius: 14px;
