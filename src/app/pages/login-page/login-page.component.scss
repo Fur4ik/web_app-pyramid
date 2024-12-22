@@ -202,19 +202,22 @@
 
 
 @media (max-width: 480px) {
+  .main_sec{
+    grid-template-columns: 350px;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
   .left_sec{
     display: none;
   }
   .right_sec{
-    display: grid;
-    grid-template-rows: 60px 1fr;
     height: auto;
     width: auto;
     justify-content: center;
     border-radius: 14px;
-
-
   }
+
   .field{
     display: flex;
     flex-direction: column;
