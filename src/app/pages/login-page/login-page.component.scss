@@ -202,9 +202,6 @@
 
 
 @media (max-width: 480px) {
-  :host{
-    min-height: 300px;
-  }
   .main_sec{
     grid-template-columns: 350px;
     width: 100vw;
@@ -215,7 +212,7 @@
     display: none;
   }
   .right_sec{
-    height: auto;
+    height: 400px;
     width: auto;
     justify-content: center;
     border-radius: 14px;
