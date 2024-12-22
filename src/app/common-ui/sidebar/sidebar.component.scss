@@ -82,10 +82,16 @@
 }
 
 @media (max-width: 480px) {
+  :host{
+    min-width: 400px;
+
+  }
   .header{
     display: flex;
-    grid-template-columns: 90px 150px;
-    justify-content: space-evenly ;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    //gap: 40px;
+    padding: 0;
   }
   .header_n{
     //visibility: hidden;
