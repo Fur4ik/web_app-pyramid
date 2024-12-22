@@ -83,11 +83,13 @@
 
 @media (max-width: 480px) {
   .header{
-    //display: none;
-
+    display: flex;
+    grid-template-columns: 90px 150px;
+    justify-content: space-evenly ;
   }
   .header_n{
-    visibility: hidden;
+    //visibility: hidden;
+    display: none;
     width: 100px;
   }
 }
