@@ -57,18 +57,6 @@ client.connect().then(() => {
   }
 )
 
-
-// app.get('/check-db', async (req, res) => {
-//   try {
-//     const result = await client.query('SELECT NOW()');
-//     res.status(200).send(result.rows);
-//   } catch (error) {
-//     console.error('Ошибка подключения к базе данных:', error);
-//     res.status(500).send('Ошибка подключения к базе данных');
-//   }
-// });
-
-
 //обрабоичик получения из таблицы schedule
 app.get('/api/schedule', async (req, res) => {
   try {
@@ -105,7 +93,7 @@ app.get('/api/clients', async (req: Request, res: Response) => {
   }
 });
 
-app.get('/user/:data', async (req: Request, res: Response) => {
+app.get('/api/user/:data', async (req: Request, res: Response) => {
   try {
     const { data } = req.params;
     const result = await client.query('SELECT * FROM clients WHERE email_client = $1', [data]);
@@ -122,7 +110,7 @@ app.get('/user/:data', async (req: Request, res: Response) => {
 
 
 //обработчик добавления записи в таблицу schedule
-app.post('/schedule', async (req, res) => {
+app.post('/api/schedule', async (req, res) => {
   try {
     const {time_clock, time_min, zone, name_tren_sess, name_trener} = req.body;
     const result = await client.query(
@@ -137,7 +125,7 @@ app.post('/schedule', async (req, res) => {
 });
 
 //обработчик удаления записи из таблицы schedule
-app.delete('/schedule/:id', async (req, res) => {
+app.delete('/api/schedule/:id', async (req, res) => {
   try {
     const {id} = req.params;
     const result = await client.query('DELETE FROM schedule where id_tren=$1', [id]);
@@ -149,7 +137,7 @@ app.delete('/schedule/:id', async (req, res) => {
 });
 
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   try {
     const {name_client, email_client, password_client} = req.body;
     const role_client = 'user';
@@ -176,7 +164,7 @@ app.post('/register', async (req, res) => {
 });
 
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const {email_client, password_client} = req.body;
   // if (!email_client || !password_client) {
   //   res.status(400).json({error: 'Заполните все поля'});
@@ -211,7 +199,7 @@ app.post('/login', async (req, res) => {
 
 
 
-app.get('/user/:id/schedule', async (req, res) => {
+app.get('/api/user/:id/schedule', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client.query('SELECT * FROM client_tren WHERE id_client = $1', [id]);
@@ -222,7 +210,7 @@ app.get('/user/:id/schedule', async (req, res) => {
   }
 });
 
-app.get('/user/:id/schedule/count', async (req, res) => {
+app.get('/api/user/:id/schedule/count', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client.query('SELECT * FROM client_tren WHERE id_client = $1', [id]);
@@ -233,7 +221,7 @@ app.get('/user/:id/schedule/count', async (req, res) => {
   }
 });
 
-app.post('/user/:id/schedule', async (req, res) => {
+app.post('/api/user/:id/schedule', async (req, res) => {
   try {
     const { id } = req.params;
     const { id_tren } = req.body;
@@ -265,7 +253,7 @@ app.post('/user/:id/schedule', async (req, res) => {
 });
 
 
-app.delete('/user/:id/schedule/:id_tren', async (req, res) => {
+app.delete('/api/user/:id/schedule/:id_tren', async (req, res) => {
   try {
     const { id, id_tren } = req.params;
     if (!id_tren) {
@@ -282,7 +270,7 @@ app.delete('/user/:id/schedule/:id_tren', async (req, res) => {
 }
 });
 
-app.put('/user/data/:id', async (req, res) => {
+app.put('/api/user/data/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { new_name, new_email } = req.body;
@@ -310,7 +298,7 @@ app.put('/user/data/:id', async (req, res) => {
 });
 
 
-app.post('/feedback', async (req, res) => {
+app.post('/api/feedback', async (req, res) => {
   try {
     const {name_client, phone_client} = req.body;
     const result = await client.query('' +
@@ -327,7 +315,7 @@ app.post('/feedback', async (req, res) => {
   }
 });
 
-app.get('/feedback', async (req, res) => {
+app.get('/api/feedback', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM feedback');
     if (result.rowCount !== 0) {
@@ -342,7 +330,7 @@ app.get('/feedback', async (req, res) => {
   }
 });
 
-app.delete('/feedback/:id', async (req, res) => {
+app.delete('/api/feedback/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client.query('' +
@@ -354,7 +342,7 @@ app.delete('/feedback/:id', async (req, res) => {
   }
 })
 
-app.get('/slider', async (req, res) => {
+app.get('/api/slider', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM slider')
     if (result.rowCount !== 0) {
