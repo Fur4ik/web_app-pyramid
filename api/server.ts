@@ -35,7 +35,7 @@ const client = new Client({
 });
 
 const SECRET_KEY = 'furratytta';
-const API_URL = process.env['API_URL'] || 'https://web-site-pyramida.vercel.app'; // Замените на ваш продакшен-URL
+// const API_URL = process.env['API_URL'] || 'https://web-site-pyramida.vercel.app'; // Замените на ваш продакшен-URL
 
 //позволяет подключаться к серверу сторонним id
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
