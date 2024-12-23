@@ -1,7 +1,7 @@
 <div *ngFor="let notification of notifications; let i = index"
      [ngClass]="{'success_popup':notification.type==='success',
 'fail_popup':notification.type==='fail'}" class="popup"
-     [style.bottom.px]="20 + i * 50">
+     [style.bottom.px]="15 + i * 40">
   <div class="main_popup">
     <span class="text_popup">{{ notification.message }}</span>
   </div>
