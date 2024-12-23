@@ -18,21 +18,21 @@ const app = express();
 // postgressupabase
 
 // Подключение к базе данных Supabase
-// const client = new Client({
-//   host: 'aws-0-eu-west-2.pooler.supabase.com',
-//   port: 5432,
-//   user: 'postgres.ggzhtnyhdhhypezunjiu',
-//   password: 'postgressupabase', // Замените на ваш пароль
-//   database: 'postgres',
-//   ssl: {
-//     rejectUnauthorized: false // Отключение проверки SSL для тестов (на проде лучше не использовать)
-//   }
-// });
-
 const client = new Client({
-  connectionString: process.env['DATABASE_URL'], // Используем квадратные скобки
-  ssl: false, // Отключаем SSL-соединение
+  host: 'aws-0-eu-west-2.pooler.supabase.com',
+  port: 5432,
+  user: 'postgres.ggzhtnyhdhhypezunjiu',
+  password: 'postgressupabase', // Замените на ваш пароль
+  database: 'postgres',
+  ssl: {
+    rejectUnauthorized: false // Отключение проверки SSL для тестов (на проде лучше не использовать)
+  }
 });
+
+// const client = new Client({
+//   connectionString: process.env['DATABASE_URL'], // Используем квадратные скобки
+//   ssl: false, // Отключаем SSL-соединение
+// });
 
 const SECRET_KEY = 'furratytta';
 // const API_URL = process.env['API_URL'] || 'https://web-site-pyramida.vercel.app'; // Замените на ваш продакшен-URL
