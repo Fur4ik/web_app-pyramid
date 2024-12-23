@@ -45,46 +45,46 @@ export class MainPageComponent {
     }
   }
 
-  showSuccessPopup(){
-    this.notificationService.showSuccess("Наш менеджер скоро свяжется с вами")
-  }
-  showFailPopup(){
-    this.notificationService.showFail("Произошла ошибка при отправке обратной связи")
-  }
 
-  // slides={
-  //   url_photo: '',
-  // };
+
+  // slides:string[]=[
+  //   "./assets/img/slider1.jpg",
+  //   "./assets/img/slider2.jpg",
+  //   "./assets/img/slider3.jpg",
+  //   "./assets/img/slider4.jpg",
+  // ];
+  // slideIndex: number = 1;
   //
-  // ngOnInit(){
-  //   this.dbService.getSlider().subscribe(
-  //     data => {
-  //       this.slides=data;
-  //     }
-  //   )
+  // nextSlide(){
+  //   this.slideIndex = (this.slideIndex % this.slides.length) + 1;
+  // }
+  //
+  // previousSlide(){
+  //   this.slideIndex = (this.slideIndex - 2 + this.slides.length)
+  //     % this.slides.length + 1;
   // }
 
-  slides:string[]=[
-    "./assets/img/slider1.jpg",
-    "./assets/img/slider2.jpg",
-    "./assets/img/slider3.jpg",
-    "./assets/img/slider4.jpg",
-  ];
-  slideIndex: number = 1;
 
-  nextSlide(){
-    this.slideIndex = (this.slideIndex % this.slides.length) + 1;
+
+
+  ngOnInit(){
+    // Выбираем все элементы с классом 'hidden-object'
+    const hiddenObjects = document.querySelectorAll('.hidden-object');
+
+    // Создаём объект наблюдателя
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Добавляем класс "visible", если элемент в зоне видимости
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+// Наблюдаем за каждым скрытым объектом
+    hiddenObjects.forEach((obj) => observer.observe(obj));
+
   }
 
-  previousSlide(){
-    this.slideIndex = (this.slideIndex - 2 + this.slides.length)
-      % this.slides.length + 1;
-  }
-
-  // correntSlide(n: number){
-  //   if(n>=1 && n<=this.slides.length){
-  //     this.slideIndex = n;
-  //   }
-  // }
 
 }
