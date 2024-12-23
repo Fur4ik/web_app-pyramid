@@ -44,7 +44,7 @@ app.use(cors({origin: '*'}));
 app.use(express.json());
 
 // Обработчик для корневого маршрута
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
   res.send('Сервер для фитнес-клуба PYRAMIDA');
 });
 

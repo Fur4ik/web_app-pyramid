@@ -18,7 +18,7 @@ export class DbService {
   }
 
 
-  //получение записей из тиблицы schedule
+  //получение записей из таблицы schedule
   getSchedule(): Observable<any> {
     return this.http.get<Observable<any>>(`${this.url}/schedule`);
   }
