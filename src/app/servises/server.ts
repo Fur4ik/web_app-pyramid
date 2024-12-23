@@ -18,29 +18,24 @@ const app = express();
 // postgressupabase
 
 // Подключение к базе данных Supabase
-// const client = new Client({
-//   host: 'aws-0-eu-west-2.pooler.supabase.com',
-//   port: 5432,
-//   user: 'postgres.ggzhtnyhdhhypezunjiu',
-//   password: 'postgressupabase', // Замените на ваш пароль
-//   database: 'postgres',
-//   ssl: {
-//     rejectUnauthorized: false // Отключение проверки SSL для тестов (на проде лучше не использовать)
-//   }
-// });
-
 const client = new Client({
-  connectionString: process.env['DATABASE_URL'], // Используем квадратные скобки
-  ssl: false, // Отключаем SSL-соединение
+  host: 'aws-0-eu-west-2.pooler.supabase.com',
+  port: 5432,
+  user: 'postgres.ggzhtnyhdhhypezunjiu',
+  password: 'postgressupabase', // Замените на ваш пароль
+  database: 'postgres',
+  ssl: {
+    rejectUnauthorized: false // Отключение проверки SSL для тестов (на проде лучше не использовать)
+  }
 });
 
 const SECRET_KEY = 'furratytta';
-const API_URL = process.env['API_URL'] || 'https://web-site-pyramida.vercel.app'; // Замените на ваш продакшен-URL
 
 //позволяет подключаться к серверу сторонним id
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // app.use(cors({origin: 'http://localhost:4200'}));
 app.use(cors({origin: '*'}));
+
 app.use(express.json());
 
 // Обработчик для корневого маршрута
@@ -58,19 +53,10 @@ client.connect().then(() => {
 )
 
 
-app.get('/check-db', async (req, res) => {
-  try {
-    const result = await client.query('SELECT NOW()');
-    res.status(200).send(result.rows);
-  } catch (error) {
-    console.error('Ошибка подключения к базе данных:', error);
-    res.status(500).send('Ошибка подключения к базе данных');
-  }
-});
 
 
 //обрабоичик получения из таблицы schedule
-app.get('/schedule', async (req, res) => {
+app.get('/api/schedule', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM schedule');
     res.json(result.rows);
@@ -80,7 +66,7 @@ app.get('/schedule', async (req, res) => {
   }
 });
 
-app.get('/schedule/:id', async (req, res) => {
+app.get('/api/schedule/:id', async (req, res) => {
   try {
     const { id } = req.params;
     // console.log('id serv', id)
@@ -95,7 +81,7 @@ app.get('/schedule/:id', async (req, res) => {
 
 
 //обрабоичик получения из таблицы clients
-app.get('/clients', async (req: Request, res: Response) => {
+app.get('/api/clients', async (req: Request, res: Response) => {
   try {
     const result = await client.query('SELECT * FROM clients');
     res.json(result.rows);
@@ -105,7 +91,7 @@ app.get('/clients', async (req: Request, res: Response) => {
   }
 });
 
-app.get('/user/:data', async (req: Request, res: Response) => {
+app.get('/api/user/:data', async (req: Request, res: Response) => {
   try {
     const { data } = req.params;
     const result = await client.query('SELECT * FROM clients WHERE email_client = $1', [data]);
@@ -122,7 +108,7 @@ app.get('/user/:data', async (req: Request, res: Response) => {
 
 
 //обработчик добавления записи в таблицу schedule
-app.post('/schedule', async (req, res) => {
+app.post('/api/schedule', async (req, res) => {
   try {
     const {time_clock, time_min, zone, name_tren_sess, name_trener} = req.body;
     const result = await client.query(
@@ -137,7 +123,7 @@ app.post('/schedule', async (req, res) => {
 });
 
 //обработчик удаления записи из таблицы schedule
-app.delete('/schedule/:id', async (req, res) => {
+app.delete('/api/schedule/:id', async (req, res) => {
   try {
     const {id} = req.params;
     const result = await client.query('DELETE FROM schedule where id_tren=$1', [id]);
@@ -149,7 +135,7 @@ app.delete('/schedule/:id', async (req, res) => {
 });
 
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   try {
     const {name_client, email_client, password_client} = req.body;
     const role_client = 'user';
@@ -176,7 +162,7 @@ app.post('/register', async (req, res) => {
 });
 
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const {email_client, password_client} = req.body;
   // if (!email_client || !password_client) {
   //   res.status(400).json({error: 'Заполните все поля'});
@@ -211,7 +197,7 @@ app.post('/login', async (req, res) => {
 
 
 
-app.get('/user/:id/schedule', async (req, res) => {
+app.get('/api/user/:id/schedule', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client.query('SELECT * FROM client_tren WHERE id_client = $1', [id]);
@@ -222,7 +208,7 @@ app.get('/user/:id/schedule', async (req, res) => {
   }
 });
 
-app.get('/user/:id/schedule/count', async (req, res) => {
+app.get('/api/user/:id/schedule/count', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client.query('SELECT * FROM client_tren WHERE id_client = $1', [id]);
@@ -233,7 +219,7 @@ app.get('/user/:id/schedule/count', async (req, res) => {
   }
 });
 
-app.post('/user/:id/schedule', async (req, res) => {
+app.post('/api/user/:id/schedule', async (req, res) => {
   try {
     const { id } = req.params;
     const { id_tren } = req.body;
@@ -265,7 +251,7 @@ app.post('/user/:id/schedule', async (req, res) => {
 });
 
 
-app.delete('/user/:id/schedule/:id_tren', async (req, res) => {
+app.delete('/api/user/:id/schedule/:id_tren', async (req, res) => {
   try {
     const { id, id_tren } = req.params;
     if (!id_tren) {
@@ -282,7 +268,7 @@ app.delete('/user/:id/schedule/:id_tren', async (req, res) => {
 }
 });
 
-app.put('/user/data/:id', async (req, res) => {
+app.put('/api/user/data/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { new_name, new_email } = req.body;
@@ -310,7 +296,7 @@ app.put('/user/data/:id', async (req, res) => {
 });
 
 
-app.post('/feedback', async (req, res) => {
+app.post('/api/feedback', async (req, res) => {
   try {
     const {name_client, phone_client} = req.body;
     const result = await client.query('' +
@@ -327,7 +313,7 @@ app.post('/feedback', async (req, res) => {
   }
 });
 
-app.get('/feedback', async (req, res) => {
+app.get('/api/feedback', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM feedback');
     if (result.rowCount !== 0) {
@@ -342,7 +328,7 @@ app.get('/feedback', async (req, res) => {
   }
 });
 
-app.delete('/feedback/:id', async (req, res) => {
+app.delete('/api/feedback/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client.query('' +
@@ -354,7 +340,7 @@ app.delete('/feedback/:id', async (req, res) => {
   }
 })
 
-app.get('/slider', async (req, res) => {
+app.get('/api/slider', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM slider')
     if (result.rowCount !== 0) {
@@ -367,266 +353,8 @@ app.get('/slider', async (req, res) => {
 });
 
 
-
-
-
-/**
-   * @swagger
-   * tags:
-   *   - name: Schedule
-   *     description: Управление расписанием тренировок
-   *   - name: Clients
-   *     description: Управление клиентами
-   *   - name: Feedback
-   *     description: Управление отзывами
-   *   - name: Auth
-   *     description: Аутентификация пользователей
-   *
-   * components:
-   *   schemas:
-   *     Schedule:
-   *       type: object
-   *       properties:
-   *         id_tren:
-   *           type: integer
-   *           description: Уникальный идентификатор тренировки
-   *         time_clock:
-   *           type: string
-   *           description: Время тренировки
-   *         time_min:
-   *           type: integer
-   *           description: Длительность тренировки в минутах
-   *         zone:
-   *           type: string
-   *           description: Зона проведения
-   *         name_tren_sess:
-   *           type: string
-   *           description: Название тренировки
-   *         name_trener:
-   *           type: string
-   *           description: Имя тренера
-   *     Client:
-   *       type: object
-   *       properties:
-   *         id_client:
-   *           type: integer
-   *           description: Уникальный идентификатор клиента
-   *         name_client:
-   *           type: string
-   *           description: Имя клиента
-   *         email_client:
-   *           type: string
-   *           description: Электронная почта клиента
-   *         role_client:
-   *           type: string
-   *           description: Роль клиента
-   *     Feedback:
-   *       type: object
-   *       properties:
-   *         id_mess:
-   *           type: integer
-   *           description: Уникальный идентификатор сообщения
-   *         name_client:
-   *           type: string
-   *           description: Имя клиента
-   *         phone_client:
-   *           type: string
-   *           description: Телефон клиента
-   *     TokenResponse:
-   *       type: object
-   *       properties:
-   *         message:
-   *           type: string
-   *           description: Сообщение
-   *         token:
-   *           type: string
-   *           description: JWT токен
-   *
-   * paths:
-   *   /schedule:
-   *     get:
-   *       tags:
-   *         - Schedule
-   *       summary: Получение списка тренировок
-   *       responses:
-   *         200:
-   *           description: Список тренировок
-   *           content:
-   *             application/json:
-   *               schema:
-   *                 type: array
-   *                 items:
-   *                   $ref: '#/components/schemas/Schedule'
-   *
-   *     post:
-   *       tags:
-   *         - Schedule
-   *       summary: Добавление новой тренировки
-   *       requestBody:
-   *         required: true
-   *         content:
-   *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/Schedule'
-   *       responses:
-   *         201:
-   *           description: Тренировка успешно добавлена
-   *
-   *   /schedule/{id}:
-   *     get:
-   *       tags:
-   *         - Schedule
-   *       summary: Получение тренировки по ID
-   *       parameters:
-   *         - name: id
-   *           in: path
-   *           required: true
-   *           schema:
-   *             type: integer
-   *       responses:
-   *         200:
-   *           description: Информация о тренировке
-   *           content:
-   *             application/json:
-   *               schema:
-   *                 $ref: '#/components/schemas/Schedule'
-   *
-   *     delete:
-   *       tags:
-   *         - Schedule
-   *       summary: Удаление тренировки по ID
-   *       parameters:
-   *         - name: id
-   *           in: path
-   *           required: true
-   *           schema:
-   *             type: integer
-   *       responses:
-   *         200:
-   *           description: Тренировка удалена
-   *
-   *   /clients:
-   *     get:
-   *       tags:
-   *         - Clients
-   *       summary: Получение списка клиентов
-   *       responses:
-   *         200:
-   *           description: Список клиентов
-   *           content:
-   *             application/json:
-   *               schema:
-   *                 type: array
-   *                 items:
-   *                   $ref: '#/components/schemas/Client'
-   *
-   *   /user/{id}/schedule:
-   *     get:
-   *       tags:
-   *         - Clients
-   *       summary: Получение расписания клиента
-   *       parameters:
-   *         - name: id
-   *           in: path
-   *           required: true
-   *           schema:
-   *             type: integer
-   *       responses:
-   *         200:
-   *           description: Расписание клиента
-   *           content:
-   *             application/json:
-   *               schema:
-   *                 type: array
-   *                 items:
-   *                   $ref: '#/components/schemas/Schedule'
-   *
-   *   /feedback:
-   *     get:
-   *       tags:
-   *         - Feedback
-   *       summary: Получение всех отзывов
-   *       responses:
-   *         200:
-   *           description: Список отзывов
-   *           content:
-   *             application/json:
-   *               schema:
-   *                 type: array
-   *                 items:
-   *                   $ref: '#/components/schemas/Feedback'
-   *
-   *     post:
-   *       tags:
-   *         - Feedback
-   *       summary: Добавление отзыва
-   *       requestBody:
-   *         required: true
-   *         content:
-   *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/Feedback'
-   *       responses:
-   *         201:
-   *           description: Отзыв успешно добавлен
-   *
-   *   /auth/register:
-   *     post:
-   *       tags:
-   *         - Auth
-   *       summary: Регистрация пользователя
-   *       requestBody:
-   *         required: true
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: object
-   *               properties:
-   *                 name_client:
-   *                   type: string
-   *                 email_client:
-   *                   type: string
-   *                 password_client:
-   *                   type: string
-   *       responses:
-   *         201:
-   *           description: Пользователь зарегистрирован
-   *
-   *   /auth/login:
-   *     post:
-   *       tags:
-   *         - Auth
-   *       summary: Вход в систему
-   *       requestBody:
-   *         required: true
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: object
-   *               properties:
-   *                 email_client:
-   *                   type: string
-   *                 password_client:
-   *                   type: string
-   *       responses:
-   *         200:
-   *           description: Успешный вход
-   *           content:
-   *             application/json:
-   *               schema:
-   *                 $ref: '#/components/schemas/TokenResponse'
-   */
-
-
-//запуск сервера
-// app.listen(3000, () => {
-//   console.log('Server is running on http://localhost:3000');
-//   console.log('Swagger available at http://localhost:3000/api-docs');
-// });
-
-
-// Запуск сервера
-const port = process.env['PORT'] || 3000;
-app.listen(port, () => {
-  console.log(`Сервер работает на порту ${port}`);
+// запуск сервера
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+  console.log('Swagger available at http://localhost:3000/api-docs');
 });
