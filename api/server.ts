@@ -2,7 +2,7 @@ import {Client} from 'pg';
 import express, {Request, Response} from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
-import swaggerSpec from '../docs/swagger-config';
+import swaggerSpec from '../src/app/docs/swagger-config';
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -630,3 +630,5 @@ const port = process.env['PORT'] || 3000;
 app.listen(port, () => {
   console.log(`Сервер работает на порту ${port}`);
 });
+
+module.exports = app;
