@@ -30,7 +30,7 @@
     display: grid;
     grid-template-rows: 60px 1fr;
     height: 396px;
-    width: 448px;
+    width: 348px;
     background-color: var(--dark-color);
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
@@ -62,9 +62,9 @@
 .div_pass{
   position: relative;
   align-items: center;
+  display: flex;
 }
 .pass_btn{
-  //display: flex;
   position: absolute;
   background: none;
   border: none;
@@ -73,8 +73,9 @@
   cursor: pointer;
   //left: 185px;
   right: 18px;
+  //top: 9px;
   align-items: center;
-  top: 8px;
+  display: flex;
 }
 
 
@@ -92,10 +93,12 @@
 
 .field{
     display: grid;
-    grid-template-columns: 150px 1fr;
-    grid-gap: 20px;
-    padding: 0 40px;
+    grid-template-columns: 100px 200px;
+    //grid-gap: 10px;
+    padding: 0 20px;
     align-items: center;
+  box-sizing: border-box;
+  justify-content: space-evenly  ;
 }
 
 .input_text{
@@ -105,6 +108,9 @@
     color: var(--light-color);
     font-size: 16px;
     padding: 10px;
+  width: 200px;
+
+  box-sizing: border-box;
     &:focus{
         outline: none;
     }
@@ -203,11 +209,6 @@
 
 
 @media (max-width: 480px) {
-  //:host{
-  //  display: flex;
-  //  align-items: center;
-  //  justify-content: center;
-  //}
   .main_sec{
     grid-template-columns: 350px;
     width: 100vw;
