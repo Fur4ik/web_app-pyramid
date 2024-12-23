@@ -8,9 +8,6 @@
   margin-bottom: -50px;
 }
 
-.left_sec{
-
-}
 .left_img{
   height: 150px;
 }
@@ -86,10 +83,61 @@
   }
 }
 
-
-
 .right_sec_btn{
   display: flex;
   gap: 10px;
   justify-content: end;
+}
+
+@media(max-width: 480px){
+  :host{
+    margin-top: 35px;
+  }
+  .left_img{
+    display: none;
+  }
+  .main_sec{
+    padding: 40px 40px;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-gap: 20px;
+    margin-bottom: -50px;
+  }
+  .left_img{
+    height: 60px;
+  }
+
+  .right_sec{
+    gap: 50px;
+  }
+  .right_sec_top{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .right_sub_sec{
+    flex-direction: column;
+    gap: 12px;
+  }
+  .right_sec_btn{
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+  }
+  .right_name{
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .right_form{
+    flex-direction: column;
+    //width: 315px;
+    box-sizing: border-box;
+    gap: 12px;
+  }
+  .abonement{
+    font-size: 18px;
+    max-width: 300px;
+  }
 }
