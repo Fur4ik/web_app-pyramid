@@ -1,4 +1,5 @@
 # Веб-приложение "Тренажерный зал Pyramid"
+https://pyramid-gym.vercel.app
 
 ## О проекте
 Фронт написан на Angular v18.x\
