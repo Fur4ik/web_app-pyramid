@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   router = inject(Router);
 
-  private apiUrl = 'https://web-site-pyramida.vercel.app'; // URL вашего API
-  // private apiUrl = 'http://localhost:3000'; // URL вашего API
+  // private apiUrl = 'https://web-site-pyramida.vercel.app'; // URL вашего API
+  private apiUrl = 'http://localhost:3000'; // URL вашего API
 
   constructor(private http: HttpClient) {
   }

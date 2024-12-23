@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AuthService} from './auth.service';
 
@@ -9,7 +9,9 @@ import {AuthService} from './auth.service';
 
 export class DbService {
   authService = inject(AuthService);
-  private url = 'http://localhost:3000';
+
+  // private url = 'http://localhost:3000';
+  private url = 'https://web-site-pyramida.vercel.app/api'; // URL вашего API
 
 
   constructor(private http: HttpClient) {
