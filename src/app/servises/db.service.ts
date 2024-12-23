@@ -10,8 +10,7 @@ import {AuthService} from './auth.service';
 export class DbService {
   authService = inject(AuthService);
 
-  // private url = 'http://localhost:3000';
-  // private url = 'https://web-site-pyramida.vercel.app/api'; // URL вашего API
+  // private url = 'http://localhost:3000/api';
   private url ='/api';
 
   constructor(private http: HttpClient) {

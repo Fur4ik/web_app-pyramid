@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   router = inject(Router);
 
+  // private apiUrl = 'http://localhost:3000/api'; // URL вашего API
   private apiUrl = '/api'; // URL вашего API
-  // private apiUrl = 'http://localhost:3000'; // URL вашего API
 
   constructor(private http: HttpClient) {
   }

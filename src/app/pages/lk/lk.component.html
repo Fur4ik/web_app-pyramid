@@ -6,12 +6,20 @@
 
     <div class="right_sec_top">
 
-    <span class="right_name">
-      {{ dataUser.name_client }}
-    </span>
-      <span class="abonement">
-      У вас абонемент: Light. Осталось {{countTrener}} тренировок
-    </span>
+      <span class="right_name">
+        {{ dataUser.name_client }}
+      </span>
+
+      <span class="abonement"
+            *ngIf="dataUser.role_client=='user'">
+        У вас абонемент: Light. Осталось {{ countTrener }} тренировок
+      </span>
+
+      <span class="abonement"
+            *ngIf="dataUser.role_client=='root'">
+        Администратор
+      </span>
+
       <button class="form_btn" (click)="onLogout()">Выйти из аккаунта</button>
 
     </div>

@@ -9,7 +9,7 @@
   <div class="lists">
 
     <div *ngFor="let item of feedData" class="main_sec_bott">
-      <span class="mess_text">Обращение {{ item.id_mess }}</span>
+      <span class="mess_text">№ {{ item.id_mess }}</span>
       <span class="name_text"> {{ item.name_client }}</span>
       <span class="phone_text"> {{ item.phone_client }}</span>
       <button class="feed_btn" (click)="feedClient(item.id_mess)">Обработан</button>
