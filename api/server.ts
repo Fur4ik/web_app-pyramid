@@ -58,19 +58,19 @@ client.connect().then(() => {
 )
 
 
-app.get('/check-db', async (req, res) => {
-  try {
-    const result = await client.query('SELECT NOW()');
-    res.status(200).send(result.rows);
-  } catch (error) {
-    console.error('Ошибка подключения к базе данных:', error);
-    res.status(500).send('Ошибка подключения к базе данных');
-  }
-});
+// app.get('/check-db', async (req, res) => {
+//   try {
+//     const result = await client.query('SELECT NOW()');
+//     res.status(200).send(result.rows);
+//   } catch (error) {
+//     console.error('Ошибка подключения к базе данных:', error);
+//     res.status(500).send('Ошибка подключения к базе данных');
+//   }
+// });
 
 
 //обрабоичик получения из таблицы schedule
-app.get('/schedule', async (req, res) => {
+app.get('/api/schedule', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM schedule');
     res.json(result.rows);
@@ -80,7 +80,7 @@ app.get('/schedule', async (req, res) => {
   }
 });
 
-app.get('/schedule/:id', async (req, res) => {
+app.get('/api/schedule/:id', async (req, res) => {
   try {
     const { id } = req.params;
     // console.log('id serv', id)
@@ -95,7 +95,7 @@ app.get('/schedule/:id', async (req, res) => {
 
 
 //обрабоичик получения из таблицы clients
-app.get('/clients', async (req: Request, res: Response) => {
+app.get('/api/clients', async (req: Request, res: Response) => {
   try {
     const result = await client.query('SELECT * FROM clients');
     res.json(result.rows);
