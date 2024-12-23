@@ -1,5 +1,5 @@
 :host {
-  min-height: 100vh;
+  //min-height: 100vh;
     display: flex;
     padding: 90px 160px;
     flex-direction: column;
@@ -10,7 +10,7 @@
 .main_sec {
     display: grid;
     grid-template-rows: auto 1fr;
-    padding: 20px 0px;
+    padding: 20px 0;
     gap: 40px;
 }
 

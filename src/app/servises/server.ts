@@ -31,9 +31,7 @@ const app = express();
 
 const client = new Client({
   connectionString: process.env['DATABASE_URL'], // Используем квадратные скобки
-  ssl: {
-    rejectUnauthorized: false, // Убедитесь, что SSL-соединение разрешено
-  },
+  ssl: false, // Отключаем SSL-соединение
 });
 
 const SECRET_KEY = 'furratytta';
