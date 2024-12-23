@@ -17,9 +17,9 @@
   font-weight: 500;
 }
 
-.main_sec_top{
+.main_sec_top {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3, 1fr) 94px;
   background-color: var(--dark-color);
   border-radius: 14px;
   border: 2px solid var(--primary-color);
@@ -29,16 +29,16 @@
 
 }
 
-.main_sec_top_text{
+.main_sec_top_text {
   font-size: 18px;
   font-weight: 500;
   color: var(--light-color);
 }
 
 
-.main_sec_bott{
+.main_sec_bott {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3, 1fr) auto;
   border: 2px solid var(--primary-color);
   background: none;
   border-radius: 14px;
@@ -46,41 +46,40 @@
   align-items: center;
 }
 
-.mess_text{
+.mess_text {
   font-size: 20px;
   font-weight: 500;
 }
 
-.name_text{
+.name_text {
   font-size: 18px;
   color: var(--primary-color);
 }
 
-.phone_text{
+.phone_text {
   font-size: 18px;
   font-weight: 500;
 }
 
 
+.feed_btn {
+  background-color: var(--light-primary-color);
+  border-radius: 14px;
+  border: none;
+  color: var(--light-color);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+  cursor: pointer;
 
-.feed_btn{
-background-color: var(--light-primary-color);
-border-radius: 14px;
-border: none;
-color: var(--light-color);
-font-size: 14px;
-font-weight: 400;
-padding: 10px;
-cursor: pointer;
-
-&:hover {
-  background-color: var(--primary-color);
-}
+  &:hover {
+    background-color: var(--primary-color);
+  }
 }
 
 
 @media(max-width: 480px) {
-  .for_desktop{
+  .for_desktop {
     display: none;
   }
 
@@ -95,7 +94,7 @@ cursor: pointer;
     gap: 20px;
   }
 
-  .main_sec_bott{
+  .main_sec_bott {
     padding: 20px;
 
     grid-gap: 7px;
@@ -104,7 +103,7 @@ cursor: pointer;
   .mess_text,
   .name_text,
   .phone_text,
-  .feed_btn{
+  .feed_btn {
     font-size: 16px;
   }
 }
