@@ -33,7 +33,8 @@ const SECRET_KEY = 'furratytta';
 
 //позволяет подключаться к серверу сторонним id
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.use(cors({origin: 'http://localhost:4200'}));
+// app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({origin: '*'}));
 app.use(express.json());
 
 // Обработчик для корневого маршрута
@@ -51,6 +52,15 @@ client.connect().then(() => {
 )
 
 
+app.get('/check-db', async (req, res) => {
+  try {
+    const result = await client.query('SELECT NOW()');
+    res.status(200).send(result.rows);
+  } catch (error) {
+    console.error('Ошибка подключения к базе данных:', error);
+    res.status(500).send('Ошибка подключения к базе данных');
+  }
+});
 
 
 //обрабоичик получения из таблицы schedule
