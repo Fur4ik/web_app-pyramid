@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   router = inject(Router);
-  private apiUrl = 'http://localhost:3000'; // URL вашего API
+
+  private apiUrl = 'https://web-site-pyramida.vercel.app'; // URL вашего API
+  // private apiUrl = 'http://localhost:3000'; // URL вашего API
 
   constructor(private http: HttpClient) {
   }
