@@ -8,12 +8,25 @@ const jwt = require('jsonwebtoken');
 
 
 const app = express();
+// const client = new Client({
+//   host: 'localhost',
+//   port: 5432,
+//   user: 'postgres',
+//   password: 'postgres',
+//   database: 'pyramida'
+// });
+// postgressupabase
+
+// Подключение к базе данных Supabase
 const client = new Client({
-  host: 'localhost',
+  host: 'aws-0-eu-west-2.pooler.supabase.com',
   port: 5432,
-  user: 'postgres',
-  password: 'postgres',
-  database: 'pyramida'
+  user: 'postgres.ggzhtnyhdhhypezunjiu',
+  password: 'postgressupabase', // Замените на ваш пароль
+  database: 'postgres',
+  ssl: {
+    rejectUnauthorized: false // Отключение проверки SSL для тестов (на проде лучше не использовать)
+  }
 });
 
 const SECRET_KEY = 'furratytta';
@@ -590,7 +603,14 @@ app.get('/slider', async (req, res) => {
 
 
 //запуск сервера
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-  console.log('Swagger available at http://localhost:3000/api-docs');
+// app.listen(3000, () => {
+//   console.log('Server is running on http://localhost:3000');
+//   console.log('Swagger available at http://localhost:3000/api-docs');
+// });
+
+
+// Запуск сервера
+const port = process.env['PORT'] || 3000;
+app.listen(port, () => {
+  console.log(`Сервер работает на порту ${port}`);
 });
