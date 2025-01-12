@@ -7,7 +7,7 @@ import {DbService} from '../../servises/db.service';
 import {AsyncPipe, CommonModule, JsonPipe} from '@angular/common';
 import {UserDataService} from '../../servises/user-data.service';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {SidebarComponent} from '../../common-ui/sidebar/sidebar.component';
+import {HeaderComponent} from '../../common-ui/header/header.component';
 import {FeedbackComponent} from '../feedback/feedback.component';
 import {NotificationsService} from '../../common-ui/popup/notifications.service';
 import {TrenStateService} from '../../servises/tren-state.service';

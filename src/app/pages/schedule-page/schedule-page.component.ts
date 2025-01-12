@@ -10,7 +10,7 @@ import {NotificationsService} from '../../common-ui/popup/notifications.service'
 @Component({
   selector: 'app-schedule-page',
   standalone: true,
-  imports: [NgForOf, FormsModule, ReactiveFormsModule,HttpClientModule],
+  imports: [NgForOf, FormsModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './schedule-page.component.html',
   styleUrls: ['./schedule-page.component.scss'],
   providers: [DbService]
@@ -64,6 +64,9 @@ export class SchedulePageComponent{
     });
   }
 
+
+
+
   // Метод для фильтрации тренировок
   filterTren() {
     const { searchTime, searchType, searchTren } = this.searchForm.value;
@@ -75,6 +78,8 @@ export class SchedulePageComponent{
     );
   }
   countTren: number =0;
+
+
   postTren(item: any) {
     this.dbService.getCountTren(this.dataUser.id_client).subscribe(
       (response) => {

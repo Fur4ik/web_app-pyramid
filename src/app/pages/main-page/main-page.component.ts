@@ -4,11 +4,12 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {DbService} from '../../servises/db.service';
 import {CommonModule} from '@angular/common';
 import {NotificationsService} from '../../common-ui/popup/notifications.service';
+import {HomePageAngularComponent} from "../../common-ui/mini/home-page-angular/home-page-angular.component";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule],
+    imports: [RouterLink, ReactiveFormsModule, CommonModule, HomePageAngularComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })

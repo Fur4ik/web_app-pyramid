@@ -6,13 +6,13 @@ import {CommonModule} from '@angular/common';
 import {LkComponent} from '../../pages/lk/lk.component';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-header',
   standalone: true,
   imports: [RouterLink, CommonModule],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
-export class SidebarComponent {
+export class HeaderComponent {
   constructor() {
   }
 
